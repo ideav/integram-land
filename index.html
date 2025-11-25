@@ -272,22 +272,59 @@
         /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
-        .feature-card {
+        .integrum-card {
             background: white;
+            border-radius: 16px;
             padding: 2rem;
-            border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .feature-card h3 {
+        .integrum-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .integrum-card__icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+
+        .integrum-card__icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .integrum-card__number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .integrum-card__text h3 {
             color: #2563eb;
             margin-bottom: 1rem;
             font-size: 1.3rem;
+            line-height: 1.4;
         }
 
         .feature-before-after {
@@ -665,72 +702,134 @@
             <h2>Мы автоматизируем то, что вы уже пытаетесь вести в таблицах</h2>
             
             <div class="features-grid">
-                <div class="feature-card">
-                    <h3>📊 Учет затрат и доходов по проектам</h3>
-                    <div class="feature-before-after">
-                        <div class="before">
-                            <strong>Было:</strong>
-                            10 таблиц с несвязными данными.
-                        </div>
-                        <div class="after">
-                            <strong>Стало:</strong>
-                            Единый реестр проектов с автоматическим расчетом рентабельности.
+                <div class="integrum-card animated animated-opacity">
+                    <div class="integrum-card__icon">
+                        <img src="icon1.svg" alt="">
+                    </div>
+                    <div class="integrum-card__number">
+                        <span>01</span>
+                    </div>
+                    <div class="integrum-card__text">
+                        <h3>Учет затрат и доходов по проектам</h3>
+                        <div class="feature-before-after">
+                            <div class="before">
+                                <strong>Было:</strong>
+                                10 таблиц с несвязными данными.
+                            </div>
+                            <div class="after">
+                                <strong>Стало:</strong>
+                                Единый реестр проектов с автоматическим расчетом рентабельности.
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="feature-card">
-                    <h3>👥 Ресурсное планирование и управление задачами</h3>
-                    <div class="feature-before-after">
-                        <div class="before">
-                            <strong>Было:</strong>
-                            Таблица с загрузкой сотрудников, которую постоянно нужно обновлять.
-                        </div>
-                        <div class="after">
-                            <strong>Стало:</strong>
-                            Визуальные диаграммы Ганта, автоматическое распределение задач и контроль дедлайнов.
+
+                <div class="integrum-card animated animated-opacity">
+                    <div class="integrum-card__icon">
+                        <img src="icon2.svg" alt="">
+                    </div>
+                    <div class="integrum-card__number">
+                        <span>02</span>
+                    </div>
+                    <div class="integrum-card__text">
+                        <h3>Ресурсное планирование и управление задачами</h3>
+                        <div class="feature-before-after">
+                            <div class="before">
+                                <strong>Было:</strong>
+                                Таблица с загрузкой сотрудников, которую постоянно нужно обновлять.
+                            </div>
+                            <div class="after">
+                                <strong>Стало:</strong>
+                                Визуальные диаграммы Ганта, автоматическое распределение задач и контроль дедлайнов.
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="feature-card">
-                    <h3>🏭 Планирование производства и складской учет</h3>
-                    <div class="feature-before-after">
-                        <div class="before">
-                            <strong>Было:</strong>
-                            Ведомости в Excel, которые отстают от реальности.
-                        </div>
-                        <div class="after">
-                            <strong>Стало:</strong>
-                            Учет остатков в реальном времени, планирование закупок и контроль этапов производства.
+
+                <div class="integrum-card animated animated-opacity">
+                    <div class="integrum-card__icon">
+                        <img src="icon3.svg" alt="">
+                    </div>
+                    <div class="integrum-card__number">
+                        <span>03</span>
+                    </div>
+                    <div class="integrum-card__text">
+                        <h3>Планирование производства и складской учет</h3>
+                        <div class="feature-before-after">
+                            <div class="before">
+                                <strong>Было:</strong>
+                                Ведомости в Excel, которые отстают от реальности.
+                            </div>
+                            <div class="after">
+                                <strong>Стало:</strong>
+                                Учет остатков в реальном времени, планирование закупок и контроль этапов производства.
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="feature-card">
-                    <h3>💰 Расчет бюджетов и финансовое планирование</h3>
-                    <div class="feature-before-after">
-                        <div class="before">
-                            <strong>Было:</strong>
-                            Многолистные файлы с бюджетом, где любое изменение — головная боль.
-                        </div>
-                        <div class="after">
-                            <strong>Стало:</strong>
-                            Гибкие финансовые модели с актуальными данными и прогнозами.
+
+                <div class="integrum-card animated animated-opacity">
+                    <div class="integrum-card__icon">
+                        <img src="icon1.svg" alt="">
+                    </div>
+                    <div class="integrum-card__number">
+                        <span>04</span>
+                    </div>
+                    <div class="integrum-card__text">
+                        <h3>Расчет бюджетов и финансовое планирование</h3>
+                        <div class="feature-before-after">
+                            <div class="before">
+                                <strong>Было:</strong>
+                                Многолистные файлы с бюджетом, где любое изменение — головная боль.
+                            </div>
+                            <div class="after">
+                                <strong>Стало:</strong>
+                                Гибкие финансовые модели с актуальными данными и прогнозами.
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="feature-card">
-                    <h3>📅 Планирование отпусков и ведение табеля учета рабочего времени</h3>
-                    <div class="feature-before-after">
-                        <div class="before">
-                            <strong>Было:</strong>
-                            Общая таблица, где все правят одновременно.
+
+                <div class="integrum-card animated animated-opacity">
+                    <div class="integrum-card__icon">
+                        <img src="icon2.svg" alt="">
+                    </div>
+                    <div class="integrum-card__number">
+                        <span>05</span>
+                    </div>
+                    <div class="integrum-card__text">
+                        <h3>Планирование отпусков и ведение табеля учета рабочего времени</h3>
+                        <div class="feature-before-after">
+                            <div class="before">
+                                <strong>Было:</strong>
+                                Общая таблица, где все правят одновременно.
+                            </div>
+                            <div class="after">
+                                <strong>Стало:</strong>
+                                Понятный календарь с согласованием, интеграцией с графиком и автоматическим формированием табеля.
+                            </div>
                         </div>
-                        <div class="after">
-                            <strong>Стало:</strong>
-                            Понятный календарь с согласованием, интеграцией с графиком и автоматическим формированием табеля.
+                    </div>
+                </div>
+
+                <div class="integrum-card animated animated-opacity">
+                    <div class="integrum-card__icon">
+                        <img src="icon3.svg" alt="">
+                    </div>
+                    <div class="integrum-card__number">
+                        <span>06</span>
+                    </div>
+                    <div class="integrum-card__text">
+                        <h3>Управление клиентами и продажами</h3>
+                        <div class="feature-before-after">
+                            <div class="before">
+                                <strong>Было:</strong>
+                                Таблицы с контактами клиентов, которые теряются и дублируются.
+                            </div>
+                            <div class="after">
+                                <strong>Стало:</strong>
+                                Единая база клиентов с воронкой продаж и автоматическим учетом сделок.
+                            </div>
                         </div>
                     </div>
                 </div>
