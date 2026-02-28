@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Условия использования - ИНТЕГРАМ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Mobile menu */
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .burger svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: left 0.3s ease;
+                z-index: 999;
+                padding: 2rem;
+            }
+
+            .nav.active {
+                left: 0;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .burger {
+                display: block;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 57px;
+            width: auto;
+            margin: -7px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-wrapper h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .content-wrapper h3 {
+            font-size: 1.2rem;
+            color: #374151;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #4b5563;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-wrapper a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .content-wrapper a:hover {
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-wrapper h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="logo2.svg" alt="ИНТЕГРАМ">
+                    </a>
+                </div>
+
+                <nav class="nav">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/#solution">Что предлагаем</a></li>
+                        <li><a href="/#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="burger" id="burger">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.75 12H20.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.75 6H20.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.75 18H20.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Условия использования</h1>
+            <p>Правила использования сервиса ИНТЕГРАМ</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="last-updated">
+                    Последнее обновление: <span id="update-date">1 января 2025</span>
+                </div>
+
+                <h2>1. Общие положения</h2>
+                <p>Настоящие Условия использования (далее — «Условия») регулируют отношения между ООО «ИНТЕГРАМ» (далее — «Компания», «мы», «нас») и пользователем (далее — «Пользователь», «вы») в связи с использованием платформы ИНТЕГРАМ (далее — «Сервис», «Платформа»).</p>
+                <p>Используя Сервис, вы подтверждаете, что ознакомились с настоящими Условиями, поняли их и согласны соблюдать их в полном объеме.</p>
+
+                <h2>2. Описание Сервиса</h2>
+                <p>ИНТЕГРАМ — это платформа-конструктор для автоматизации бизнес-процессов. Сервис позволяет:</p>
+                <ul>
+                    <li>Создавать и настраивать системы учета и управления данными</li>
+                    <li>Автоматизировать рабочие процессы</li>
+                    <li>Управлять проектами, задачами и ресурсами</li>
+                    <li>Вести финансовый учет и планирование</li>
+                    <li>Интегрироваться с внешними системами через API</li>
+                </ul>
+
+                <h2>3. Регистрация и учетная запись</h2>
+                <h3>3.1. Требования к регистрации</h3>
+                <p>Для использования Сервиса необходимо создать учетную запись. При регистрации вы обязуетесь:</p>
+                <ul>
+                    <li>Предоставить достоверную и актуальную информацию</li>
+                    <li>Своевременно обновлять данные учетной записи</li>
+                    <li>Обеспечить конфиденциальность данных для входа</li>
+                    <li>Немедленно уведомлять нас о несанкционированном доступе к учетной записи</li>
+                </ul>
+
+                <h3>3.2. Ответственность за учетную запись</h3>
+                <p>Вы несете полную ответственность за все действия, совершенные с использованием вашей учетной записи. Компания не несет ответственности за убытки, возникшие в результате несанкционированного использования вашей учетной записи.</p>
+
+                <h2>4. Права и обязанности Пользователя</h2>
+                <h3>4.1. Пользователь имеет право:</h3>
+                <ul>
+                    <li>Использовать функционал Сервиса в соответствии с выбранным тарифным планом</li>
+                    <li>Получать техническую поддержку в рамках приобретенного пакета услуг</li>
+                    <li>Экспортировать свои данные из системы</li>
+                    <li>Настраивать и дорабатывать систему в пределах предоставленных возможностей</li>
+                </ul>
+
+                <h3>4.2. Пользователь обязуется:</h3>
+                <ul>
+                    <li>Соблюдать настоящие Условия и применимое законодательство</li>
+                    <li>Не использовать Сервис для противоправных целей</li>
+                    <li>Не нарушать права интеллектуальной собственности третьих лиц</li>
+                    <li>Не распространять вредоносное программное обеспечение</li>
+                    <li>Не предпринимать попыток несанкционированного доступа к системам Компании</li>
+                </ul>
+
+                <h2>5. Интеллектуальная собственность</h2>
+                <p>Все права на Сервис, включая программный код, дизайн, товарные знаки и документацию, принадлежат Компании или её лицензиарам. Использование Сервиса не передает Пользователю никаких прав на интеллектуальную собственность Компании, кроме ограниченного права на использование Сервиса в соответствии с настоящими Условиями.</p>
+                <p>Данные, созданные Пользователем в процессе использования Сервиса, остаются собственностью Пользователя.</p>
+
+                <h2>6. Оплата и тарифы</h2>
+                <h3>6.1. Условия оплаты</h3>
+                <p>Стоимость использования Сервиса определяется действующим прайс-листом. Оплата производится в соответствии с выбранным тарифным планом.</p>
+
+                <h3>6.2. Возврат средств</h3>
+                <p>Возврат денежных средств осуществляется в соответствии с условиями публичной оферты и действующим законодательством Российской Федерации.</p>
+
+                <h2>7. Конфиденциальность и защита данных</h2>
+                <p>Обработка персональных данных осуществляется в соответствии с нашей <a href="privacy.html">Политикой конфиденциальности</a> и требованиями Федерального закона № 152-ФЗ «О персональных данных».</p>
+                <p>Для локальной версии Сервиса: все данные хранятся на серверах Пользователя, и Компания не имеет к ним доступа, если иное не оговорено отдельным соглашением о технической поддержке.</p>
+
+                <h2>8. Ограничение ответственности</h2>
+                <p>Сервис предоставляется «как есть». Компания не гарантирует:</p>
+                <ul>
+                    <li>Бесперебойную работу Сервиса</li>
+                    <li>Отсутствие ошибок в работе программного обеспечения</li>
+                    <li>Соответствие Сервиса специфическим требованиям Пользователя</li>
+                </ul>
+                <p>Максимальная ответственность Компании ограничена суммой, уплаченной Пользователем за последние 12 месяцев использования Сервиса.</p>
+
+                <h2>9. Прекращение использования</h2>
+                <h3>9.1. По инициативе Пользователя</h3>
+                <p>Пользователь вправе прекратить использование Сервиса в любое время. При этом рекомендуется предварительно экспортировать все необходимые данные.</p>
+
+                <h3>9.2. По инициативе Компании</h3>
+                <p>Компания вправе приостановить или прекратить доступ к Сервису в случае:</p>
+                <ul>
+                    <li>Нарушения настоящих Условий</li>
+                    <li>Неоплаты услуг</li>
+                    <li>Использования Сервиса в противоправных целях</li>
+                    <li>Иных обстоятельств, предусмотренных законодательством</li>
+                </ul>
+
+                <h2>10. Изменение Условий</h2>
+                <p>Компания вправе изменять настоящие Условия. Актуальная версия всегда доступна на данной странице. О существенных изменениях мы уведомляем Пользователей по электронной почте или через интерфейс Сервиса не менее чем за 30 дней до вступления изменений в силу.</p>
+
+                <h2>11. Применимое право и разрешение споров</h2>
+                <p>Настоящие Условия регулируются законодательством Российской Федерации. Все споры подлежат разрешению путем переговоров, а при недостижении согласия — в судебном порядке по месту нахождения Компании.</p>
+
+                <h2>12. Контактная информация</h2>
+                <p>По всем вопросам, связанным с настоящими Условиями, вы можете связаться с нами:</p>
+                <ul>
+                    <li>Email: <a href="mailto:care@integram.io">care@integram.io</a></li>
+                    <li>Телефон: +7 (995) 506-01-67</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ИНТЕГРАМ</h3>
+                    <p><a href="https://app.integram.io/#reg">Попробовать своими руками</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Документы</h3>
+                    <a href="terms.html">Условия использования</a>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="https://integram.io/OfferOJSC.pdf">Публичная оферта</a>
+                    <a href="https://integram.io/acct.html">Платежная информация</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (995) 506-01-67</p>
+                    <p>Email: care@integram.io</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © ИНТЕГРАМ, <span id="footer-year">2025</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const footerYearSpan = document.getElementById('footer-year');
+            if (footerYearSpan) {
+                footerYearSpan.textContent = currentYear;
+            }
+
+            // Mobile menu toggle
+            const burger = document.getElementById('burger');
+            const nav = document.querySelector('.nav');
+
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
