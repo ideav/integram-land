@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности - ИНТЕГРАМ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #2563eb;
+        }
+
+        /* Mobile menu */
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .burger svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: left 0.3s ease;
+                z-index: 999;
+                padding: 2rem;
+            }
+
+            .nav.active {
+                left: 0;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .burger {
+                display: block;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 57px;
+            width: auto;
+            margin: -7px;
+        }
+
+        .logo a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-wrapper h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .content-wrapper h3 {
+            font-size: 1.2rem;
+            color: #374151;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .content-wrapper p {
+            margin-bottom: 1rem;
+            color: #4b5563;
+        }
+
+        .content-wrapper ul,
+        .content-wrapper ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: #4b5563;
+        }
+
+        .content-wrapper li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-wrapper a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .content-wrapper a:hover {
+            text-decoration: underline;
+        }
+
+        .last-updated {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .data-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .data-table td {
+            color: #4b5563;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #60a5fa;
+        }
+
+        .footer-section a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-wrapper h2 {
+                font-size: 1.3rem;
+            }
+
+            .data-table {
+                font-size: 0.9rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/">
+                        <img src="logo2.svg" alt="ИНТЕГРАМ">
+                    </a>
+                </div>
+
+                <nav class="nav">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/#solution">Что предлагаем</a></li>
+                        <li><a href="/#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <button class="burger" id="burger">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.75 12H20.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.75 6H20.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M3.75 18H20.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Политика конфиденциальности</h1>
+            <p>Защита ваших персональных данных — наш приоритет</p>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="last-updated">
+                    Последнее обновление: <span id="update-date">1 января 2025</span>
+                </div>
+
+                <h2>1. Общие положения</h2>
+                <p>Настоящая Политика конфиденциальности (далее — «Политика») определяет порядок обработки и защиты персональных данных пользователей сервиса ИНТЕГРАМ (далее — «Сервис»), осуществляемой ООО «ИНТЕГРАМ» (далее — «Компания», «мы», «нас»).</p>
+                <p>Используя Сервис, вы даете согласие на обработку ваших персональных данных в соответствии с настоящей Политикой.</p>
+
+                <h2>2. Какие данные мы собираем</h2>
+                <h3>2.1. Данные, которые вы предоставляете</h3>
+                <ul>
+                    <li><strong>Регистрационные данные:</strong> имя, фамилия, адрес электронной почты, номер телефона, название организации</li>
+                    <li><strong>Платежные данные:</strong> реквизиты для оплаты (обрабатываются через защищенные платежные системы)</li>
+                    <li><strong>Данные обращений:</strong> содержание ваших запросов в службу поддержки</li>
+                </ul>
+
+                <h3>2.2. Данные, собираемые автоматически</h3>
+                <ul>
+                    <li><strong>Технические данные:</strong> IP-адрес, тип браузера, операционная система, разрешение экрана</li>
+                    <li><strong>Данные об использовании:</strong> действия в Сервисе, время посещения, просмотренные страницы</li>
+                    <li><strong>Файлы cookie:</strong> данные для улучшения работы Сервиса и персонализации</li>
+                </ul>
+
+                <h2>3. Цели обработки данных</h2>
+                <p>Мы обрабатываем ваши персональные данные для следующих целей:</p>
+                <table class="data-table">
+                    <tr>
+                        <th>Цель обработки</th>
+                        <th>Правовое основание</th>
+                    </tr>
+                    <tr>
+                        <td>Предоставление доступа к Сервису</td>
+                        <td>Исполнение договора</td>
+                    </tr>
+                    <tr>
+                        <td>Обработка платежей</td>
+                        <td>Исполнение договора</td>
+                    </tr>
+                    <tr>
+                        <td>Техническая поддержка</td>
+                        <td>Исполнение договора</td>
+                    </tr>
+                    <tr>
+                        <td>Улучшение Сервиса</td>
+                        <td>Законный интерес</td>
+                    </tr>
+                    <tr>
+                        <td>Информирование о новых функциях и услугах</td>
+                        <td>Согласие пользователя</td>
+                    </tr>
+                    <tr>
+                        <td>Соблюдение законодательства</td>
+                        <td>Юридическая обязанность</td>
+                    </tr>
+                </table>
+
+                <h2>4. Защита данных</h2>
+                <p>Мы применяем комплекс мер для защиты ваших персональных данных:</p>
+                <ul>
+                    <li><strong>Шифрование:</strong> передача данных осуществляется по защищенному протоколу HTTPS</li>
+                    <li><strong>Контроль доступа:</strong> доступ к данным имеют только авторизованные сотрудники</li>
+                    <li><strong>Резервное копирование:</strong> регулярное создание резервных копий</li>
+                    <li><strong>Мониторинг:</strong> постоянный контроль безопасности систем</li>
+                </ul>
+
+                <h3>4.1. Локальная версия Сервиса</h3>
+                <p>При использовании локальной версии ИНТЕГРАМ все данные хранятся исключительно на серверах Пользователя. Компания не имеет доступа к данным, размещенным в локальной версии, если это не предусмотрено отдельным соглашением о технической поддержке.</p>
+
+                <h2>5. Передача данных третьим лицам</h2>
+                <p>Мы не продаем и не передаем ваши персональные данные третьим лицам, за исключением следующих случаев:</p>
+                <ul>
+                    <li><strong>Поставщики услуг:</strong> хостинг-провайдеры, платежные системы, сервисы аналитики (только данные, необходимые для оказания услуг)</li>
+                    <li><strong>Требования законодательства:</strong> по запросу уполномоченных государственных органов</li>
+                    <li><strong>С вашего согласия:</strong> в иных случаях только с вашего явного согласия</li>
+                </ul>
+
+                <h2>6. Файлы cookie</h2>
+                <p>Мы используем файлы cookie для:</p>
+                <ul>
+                    <li>Обеспечения работы Сервиса (необходимые cookie)</li>
+                    <li>Запоминания ваших настроек (функциональные cookie)</li>
+                    <li>Анализа использования Сервиса (аналитические cookie)</li>
+                </ul>
+                <p>Вы можете управлять настройками cookie в вашем браузере. Отключение некоторых cookie может повлиять на функциональность Сервиса.</p>
+
+                <h2>7. Ваши права</h2>
+                <p>В соответствии с Федеральным законом № 152-ФЗ «О персональных данных» вы имеете право:</p>
+                <ul>
+                    <li><strong>Право на доступ:</strong> получить информацию о ваших персональных данных</li>
+                    <li><strong>Право на исправление:</strong> потребовать исправления неточных данных</li>
+                    <li><strong>Право на удаление:</strong> потребовать удаления ваших данных</li>
+                    <li><strong>Право на ограничение обработки:</strong> ограничить обработку в определенных случаях</li>
+                    <li><strong>Право на отзыв согласия:</strong> отозвать согласие на обработку данных</li>
+                    <li><strong>Право на обжалование:</strong> подать жалобу в Роскомнадзор</li>
+                </ul>
+                <p>Для реализации ваших прав свяжитесь с нами по адресу <a href="mailto:care@integram.io">care@integram.io</a>.</p>
+
+                <h2>8. Сроки хранения данных</h2>
+                <p>Мы храним ваши персональные данные в течение срока, необходимого для достижения целей обработки:</p>
+                <ul>
+                    <li>Данные учетной записи — в течение срока использования Сервиса и 3 лет после прекращения использования</li>
+                    <li>Данные о транзакциях — 5 лет в соответствии с требованиями бухгалтерского учета</li>
+                    <li>Обращения в поддержку — 2 года с момента обращения</li>
+                </ul>
+
+                <h2>9. Обработка данных несовершеннолетних</h2>
+                <p>Сервис не предназначен для лиц младше 18 лет. Мы не собираем персональные данные несовершеннолетних намеренно. Если нам станет известно о сборе данных несовершеннолетнего без согласия законного представителя, мы примем меры по их удалению.</p>
+
+                <h2>10. Международная передача данных</h2>
+                <p>Ваши данные могут обрабатываться на серверах, расположенных за пределами Российской Федерации. В таких случаях мы обеспечиваем соответствующий уровень защиты данных в соответствии с требованиями законодательства.</p>
+
+                <h2>11. Изменения Политики</h2>
+                <p>Мы можем обновлять настоящую Политику. Актуальная версия всегда доступна на данной странице. О существенных изменениях мы уведомим вас по электронной почте или через интерфейс Сервиса.</p>
+
+                <h2>12. Контактная информация</h2>
+                <p>По вопросам обработки персональных данных вы можете связаться с нами:</p>
+                <ul>
+                    <li>Email: <a href="mailto:care@integram.io">care@integram.io</a></li>
+                    <li>Телефон: +7 (995) 506-01-67</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ИНТЕГРАМ</h3>
+                    <p><a href="https://app.integram.io/#reg">Попробовать своими руками</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Документы</h3>
+                    <a href="terms.html">Условия использования</a>
+                    <a href="privacy.html">Политика конфиденциальности</a>
+                    <a href="https://integram.io/OfferOJSC.pdf">Публичная оферта</a>
+                    <a href="https://integram.io/acct.html">Платежная информация</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Телефон: +7 (995) 506-01-67</p>
+                    <p>Email: care@integram.io</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © ИНТЕГРАМ, <span id="footer-year">2025</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update current year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentYear = new Date().getFullYear();
+            const footerYearSpan = document.getElementById('footer-year');
+            if (footerYearSpan) {
+                footerYearSpan.textContent = currentYear;
+            }
+
+            // Mobile menu toggle
+            const burger = document.getElementById('burger');
+            const nav = document.querySelector('.nav');
+
+            if (burger && nav) {
+                burger.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                });
+
+                const navLinks = nav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
